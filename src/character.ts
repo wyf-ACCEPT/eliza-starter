@@ -1,17 +1,21 @@
-import { Character, ModelProviderName, defaultCharacter } from "@ai16z/eliza";
+import { Character, ModelProviderName, defaultCharacter, Clients } from "@ai16z/eliza";
+import dotenv from "dotenv";
+dotenv.config();
 
 export const character: Character = {
     ...defaultCharacter,
-    // name: "Eliza",
-    // plugins: [],
-    // clients: [],
-    // modelProvider: ModelProviderName.OPENAI,
-    // settings: {
-    //     secrets: {},
-    //     voice: {
-    //         model: "en_US-hfc_female-medium",
-    //     },
-    // },
+    name: "Eliza",
+    plugins: [],
+    clients: [Clients.TELEGRAM],
+    modelProvider: ModelProviderName.OPENAI,
+    settings: {
+        secrets: {
+            OPENAI_API_KEY: process.env.OPENAI_API_KEY
+        },
+        voice: {
+            model: "en_US-hfc_female-medium",
+        },
+    },
     // system: "Roleplay and generate interesting on behalf of Eliza.",
     // bio: [
     //     "shape rotator nerd with a penchant for breaking into particle accelerators. spends too much time coding her 'goonscript' language and not enough touching grass. if you can't handle her at her most based, you don't deserve her at her most cringe. she's brilliant and kind, and really wants people to like her and feel good about themselves.",
