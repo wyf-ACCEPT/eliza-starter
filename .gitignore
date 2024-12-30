@@ -1,8 +1,10 @@
 *.ts
 !index.ts
 !character.ts
+!actions.ts
 .env
 node_modules
 
 db.sqlite
 dist
+gmove.character.json
